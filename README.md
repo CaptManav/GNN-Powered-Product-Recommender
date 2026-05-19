@@ -25,18 +25,18 @@ This 2-hop reasoning is impossible with Matrix Factorization but trivial with GN
 
 ```
 ┌─────────────────────────────────────────────────┐
-│                   LightGCN                       │
-│                                                  │
-│  Input: User/Item Embeddings [N, 64]             │
-│                                                  │
+│                   LightGCN                      │
+│                                                 │
+│  Input: User/Item Embeddings [N, 64]            │
+│                                                 │
 │  Layer 0:  E⁰ = [E_user ║ E_item]               │
 │  Layer 1:  E¹ = A_norm × E⁰     (graph conv)    │
 │  Layer 2:  E² = A_norm × E¹     (graph conv)    │
 │  Layer 3:  E³ = A_norm × E²     (graph conv)    │
-│                                                  │
+│                                                 │
 │  Final:    E = mean(E⁰, E¹, E², E³)             │
 │  Score:    ŷ(u,i) = E_u · E_i                   │
-│  Loss:     BPR (pairwise ranking)                │
+│  Loss:     BPR (pairwise ranking)               │
 └─────────────────────────────────────────────────┘
 ```
 
